@@ -25,6 +25,8 @@
         <module>ingestion-service</module>
         <module>tracking-service</module>
         <module>shipment-service</module>
+        <module>discovery-server</module>
+        <module>api-gateway</module>
     </modules>
 
     <dependencyManagement>
