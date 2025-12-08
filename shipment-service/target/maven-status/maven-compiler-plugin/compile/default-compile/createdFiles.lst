@@ -1,0 +1,6 @@
+com\logiflow\shipment\model\Shipment$ShipmentBuilder.class
+com\logiflow\shipment\model\Shipment.class
+com\logiflow\shipment\controller\ShipmentController.class
+com\logiflow\shipment\repository\ShipmentRepository.class
+com\logiflow\shipment\model\ShipmentStatus.class
+com\logiflow\shipment\ShipmentServiceApplication.class

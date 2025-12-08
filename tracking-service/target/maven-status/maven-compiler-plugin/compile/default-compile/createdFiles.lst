@@ -1,0 +1,5 @@
+com\logiflow\tracking\model\GpsCoordinates.class
+com\logiflow\tracking\TrackingServiceApplication.class
+com\logiflow\tracking\service\GeoService.class
+com\logiflow\tracking\config\RabbitMQConfig.class
+com\logiflow\tracking\service\GpsEventConsumer.class
