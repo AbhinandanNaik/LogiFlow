@@ -1,0 +1,5 @@
+com\logiflow\ingestion\IngestionServiceApplication.class
+com\logiflow\ingestion\config\RabbitMQConfig.class
+com\logiflow\ingestion\model\GpsCoordinates.class
+com\logiflow\ingestion\service\EventProducer.class
+com\logiflow\ingestion\controller\GpsIngestionController.class

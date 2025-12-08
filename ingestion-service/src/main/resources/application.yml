@@ -1,0 +1,12 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: ingestion-service
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: user
+    password: password
+

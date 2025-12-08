@@ -1,0 +1,5 @@
+E:\Projects\LogiFlow\ingestion-service\src\main\java\com\logiflow\ingestion\IngestionServiceApplication.java
+E:\Projects\LogiFlow\ingestion-service\src\main\java\com\logiflow\ingestion\config\RabbitMQConfig.java
+E:\Projects\LogiFlow\ingestion-service\src\main\java\com\logiflow\ingestion\controller\GpsIngestionController.java
+E:\Projects\LogiFlow\ingestion-service\src\main\java\com\logiflow\ingestion\service\EventProducer.java
+E:\Projects\LogiFlow\ingestion-service\src\main\java\com\logiflow\ingestion\model\GpsCoordinates.java
