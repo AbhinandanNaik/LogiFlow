@@ -27,6 +27,7 @@
         <module>shipment-service</module>
         <module>discovery-server</module>
         <module>api-gateway</module>
+        <module>optimization-engine</module>
     </modules>
 
     <dependencyManagement>

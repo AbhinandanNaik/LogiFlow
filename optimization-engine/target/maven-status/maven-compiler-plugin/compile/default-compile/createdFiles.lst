@@ -1,0 +1,5 @@
+com\logiflow\optimization\client\ShipmentClient.class
+com\logiflow\optimization\OptimizationEngineApplication.class
+com\logiflow\optimization\model\Shipment.class
+com\logiflow\optimization\service\OptimizationService.class
+com\logiflow\optimization\controller\OptimizationController.class

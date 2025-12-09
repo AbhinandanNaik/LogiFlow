@@ -52,6 +52,24 @@ services:
     networks:
       - logiflow-net
 
+  keycloak:
+    image: quay.io/keycloak/keycloak:23.0.0
+    container_name: logiflow-keycloak
+    command: start-dev
+    environment:
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://postgres:5432/keycloak
+      KC_DB_USERNAME: logiflow
+      KC_DB_PASSWORD: password
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    ports:
+      - "8085:8080"
+    depends_on:
+      - postgres
+    networks:
+      - logiflow-net
+
 networks:
   logiflow-net:
     driver: bridge
