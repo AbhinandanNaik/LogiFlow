@@ -3,3 +3,4 @@ E:\Projects\LogiFlow\tracking-service\src\main\java\com\logiflow\tracking\config
 E:\Projects\LogiFlow\tracking-service\src\main\java\com\logiflow\tracking\service\GpsEventConsumer.java
 E:\Projects\LogiFlow\tracking-service\src\main\java\com\logiflow\tracking\TrackingServiceApplication.java
 E:\Projects\LogiFlow\tracking-service\src\main\java\com\logiflow\tracking\model\GpsCoordinates.java
+E:\Projects\LogiFlow\tracking-service\src\main\java\com\logiflow\tracking\config\WebSocketConfig.java

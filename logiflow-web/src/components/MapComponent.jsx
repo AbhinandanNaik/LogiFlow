@@ -1,31 +1,47 @@
 import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import axios from 'axios';
+import { Client } from '@stomp/stompjs';
 
 const MapComponent = () => {
     const [shipments, setShipments] = useState([]);
 
     useEffect(() => {
-        const fetchShipments = async () => {
-            try {
-                // TODO: In a real app, we would fetch from the API Gateway
-                // const response = await axios.get('http://localhost:8080/api/v1/shipments');
-                // setShipments(response.data);
+        // Initial mock data
+        setShipments([
+            { id: 1, trackingNumber: 'TRK-123', lat: 40.7128, lng: -74.0060, status: 'IN_TRANSIT' },
+            { id: 2, trackingNumber: 'TRK-456', lat: 34.0522, lng: -118.2437, status: 'DELIVERED' },
+        ]);
 
-                // Mock data for visualization
-                setShipments([
-                    { id: 1, trackingNumber: 'TRK-123', lat: 40.7128, lng: -74.0060, status: 'IN_TRANSIT' },
-                    { id: 2, trackingNumber: 'TRK-456', lat: 34.0522, lng: -118.2437, status: 'DELIVERED' },
-                ]);
-            } catch (error) {
-                console.error('Error fetching shipments:', error);
-            }
+        const client = new Client({
+            brokerURL: 'ws://localhost:8080/ws',
+            onConnect: () => {
+                console.log('Connected to WebSocket');
+                client.subscribe('/topic/tracking', (message) => {
+                    const update = JSON.parse(message.body);
+                    console.log('Received update:', update);
+
+                    setShipments((prev) => {
+                        const existing = prev.find(s => s.trackingNumber === update.deviceId); // Assuming deviceId maps to trackingNumber for demo
+                        if (existing) {
+                            return prev.map(s => s.trackingNumber === update.deviceId ? { ...s, lat: update.latitude, lng: update.longitude } : s);
+                        } else {
+                            return [...prev, { id: Date.now(), trackingNumber: update.deviceId, lat: update.latitude, lng: update.longitude, status: 'LIVE' }];
+                        }
+                    });
+                });
+            },
+            onStompError: (frame) => {
+                console.error('Broker reported error: ' + frame.headers['message']);
+                console.error('Additional details: ' + frame.body);
+            },
+        });
+
+        client.activate();
+
+        return () => {
+            client.deactivate();
         };
-
-        fetchShipments();
-        const interval = setInterval(fetchShipments, 5000);
-        return () => clearInterval(interval);
     }, []);
 
     return (

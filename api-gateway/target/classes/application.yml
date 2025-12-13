@@ -14,6 +14,10 @@ spring:
           uri: lb://ingestion-service
           predicates:
             - Path=/api/v1/ingestion/**
+        - id: tracking-service-ws
+          uri: lb://tracking-service
+          predicates:
+            - Path=/ws/**
         - id: tracking-service
           uri: lb://tracking-service
           predicates:
